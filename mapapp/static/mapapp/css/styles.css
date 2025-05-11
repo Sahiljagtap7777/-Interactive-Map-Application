@@ -1,0 +1,17 @@
+#map {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* .leaflet-draw-toolbar a {
+    background-image: url('https://unpkg.com/leaflet-draw@1.0.4/dist/images/spritesheet.png');
+} */
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    margin-bottom: 20px;
+}

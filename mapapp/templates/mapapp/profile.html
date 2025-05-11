@@ -1,0 +1,38 @@
+{% extends 'mapapp/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4>User Profile</h4>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ user.get_full_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Company</th>
+                        <td>{{ user.userprofile.company }}</td>
+                    </tr>
+                    <tr>
+                        <th>Position</th>
+                        <td>{{ user.userprofile.position }}</td>
+                    </tr>
+                </table>
+                <a href="{% url 'map' %}" class="btn btn-primary">Back to Map</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
