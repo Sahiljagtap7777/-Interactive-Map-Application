@@ -77,20 +77,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
 
-    // Display coordinates in <pre>
-    function displayCoordinates(data, area = null,  shapeType = '') {
-        const display = document.getElementById('coordinates-display');
+      // Display coordinates in <pre>
+   function displayCoordinates(data, area = null, shapeType = '') {
+    const display = document.getElementById('coordinates-display');
+    
+    // Prepare the output for this shape
+    let output = `Shape Type: ${shapeType.toUpperCase()}\n`;
 
-    let output = `Shape Type: ${shapeType.toUpperCase()}\n\n`;
+    // Show coordinates
+    if (data) {
+        output += `Coordinates:\n${JSON.stringify(data, null, 2)}\n`;
+    } else {
+        output += 'No coordinates\n';
+    }
 
-    output += data ? JSON.stringify(data, null, 2) : 'No coordinates';
-
+    // Show area if available
     if (area !== null) {
-        output += `\n\nArea: ${area.toFixed(2)} m²`;
+        output += `Area: ${area.toFixed(2)} m²\n`;
     }
 
-        display.textContent = output;
-    }
+    // Add a 2-line gap between shapes
+    output += `\n\n`;
+
+    // Append new shape info to existing content
+    display.textContent += output;
+}
+
+
+
+document.getElementById('clear-btn').addEventListener('click', function () {
+    document.getElementById('coordinates-display').textContent = '';
+});
+
 
     // Save to server
     // function sendToServer(coordinates, shapeType) {
